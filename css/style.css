@@ -1,0 +1,86 @@
+/* /chamados-app/css/style.css */
+/* Import Tailwind base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles can go here if needed, but prefer Tailwind classes */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Styling for line-clamp (Tailwind might not have this out of the box for all versions) */
+.line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+/* Custom scrollbar for better dark mode aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+.dark ::-webkit-scrollbar-track {
+    background: #2D3748; 
+}
+.light ::-webkit-scrollbar-track {
+     background: #F3F4F6; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #D1D5DB; 
+    border-radius: 10px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #4A5568; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A0AEC0; 
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
+
+/* Ensure icons in theme toggle are visible correctly based on theme */
+.dark #theme-toggle-dark-icon {
+    display: block;
+}
+.dark #theme-toggle-light-icon {
+    display: none;
+}
+html:not(.dark) #theme-toggle-dark-icon {
+    display: none;
+}
+html:not(.dark) #theme-toggle-light-icon {
+    display: block;
+}
+
+/* Sidebar theme toggle icons */
+.dark #theme-toggle-dark-icon-sidebar {
+    display: block;
+}
+.dark #theme-toggle-light-icon-sidebar {
+    display: none;
+}
+html:not(.dark) #theme-toggle-dark-icon-sidebar {
+    display: none;
+}
+html:not(.dark) #theme-toggle-light-icon-sidebar {
+    display: block;
+}

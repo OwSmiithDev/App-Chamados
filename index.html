@@ -1,0 +1,243 @@
+<!-- /chamados-app/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Chamados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Tailwind CSS Dark Mode Configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { light: '#4A90E2', DEFAULT: '#357ABD', dark: '#2A629A' },
+                        secondary: { light: '#F3F4F6', DEFAULT: '#E5E7EB', dark: '#D1D5DB' },
+                        background: { light: '#FFFFFF', dark: '#1F2937' },
+                        text: { light: '#111827', dark: '#F3F4F6' },
+                        card: { light: '#FFFFFF', dark: '#2D3748' },
+                        success: '#10B981', danger: '#EF4444', warning: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos para o background interativo */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            /* Coloca o background atrás de todo o conteúdo */
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300">
+
+    <!-- Contêiner para o background de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Conteúdo principal da página, posicionado acima do background -->
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4">
+        <!-- Botão de Alternar Tema -->
+        <div class="absolute top-4 right-4">
+            <button id="theme-toggle"
+                class="p-2 rounded-lg bg-white/20 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white/30 dark:hover:bg-gray-700/60 transition-colors">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-800 dark:text-gray-200"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-800 dark:text-gray-200"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414-1.414l.707.707a1 1 0 11-1.414 1.414l-.707-.707zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Card de Login com fundo semi-transparente -->
+        <div class="w-full max-w-md bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-lg shadow-2xl rounded-xl p-8">
+            <h1 class="text-3xl font-bold text-center text-primary dark:text-primary-light mb-8">Sistema de Chamados
+            </h1>
+
+            <div id="message-area" class="mb-4 text-center"></div>
+
+            <form id="login-form">
+                <div class="mb-6">
+                    <label for="email"
+                        class="block mb-2 text-sm font-medium text-text-light dark:text-text-dark">Email</label>
+                    <input type="email" id="email"
+                        class="bg-secondary-light/80 dark:bg-gray-700/80 border border-secondary-dark/50 dark:border-gray-600/50 text-text-light dark:text-text-dark text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3"
+                        placeholder="seu.email@exemplo.com" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password"
+                        class="block mb-2 text-sm font-medium text-text-light dark:text-text-dark">Senha</label>
+                    <input type="password" id="password"
+                        class="bg-secondary-light/80 dark:bg-gray-700/80 border border-secondary-dark/50 dark:border-gray-600/50 text-text-light dark:text-text-dark text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-3"
+                        placeholder="•••••••••" required>
+                </div>
+                <button type="submit"
+                    class="w-full text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-primary-dark dark:hover:bg-primary dark:focus:ring-primary-dark transition-colors">Entrar</button>
+            </form>
+            <p class="text-sm text-center mt-6 text-text-light dark:text-text-dark">
+                Não tem uma conta? <a href="cadastro.html"
+                    class="font-medium text-primary hover:underline dark:text-primary-light">Crie uma aqui</a>.
+            </p>
+        </div>
+        <footer class="text-center text-sm text-gray-400 dark:text-gray-500 mt-8">
+            © <span id="current-year"></span> Desenvolvido por Marcos Castro | Todos os direitos reservados.
+        </footer>
+    </div>
+
+    <!-- Biblioteca particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- Script de inicialização do particles.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#357ABD" // Cor primária do tema
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#357ABD", // Cor primária do tema
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 100,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            // Altera a cor das partículas quando o tema muda
+            const themeToggleButton = document.getElementById('theme-toggle');
+            if (themeToggleButton) {
+                themeToggleButton.addEventListener('click', () => {
+                    setTimeout(() => {
+                        const isDarkMode = document.documentElement.classList.contains('dark');
+                        // Acessa a instância do particles.js e atualiza as cores
+                        if (window.pJSDom && window.pJSDom[0]) {
+                            window.pJSDom[0].pJS.particles.color.value = isDarkMode ? '#F3F4F6' : '#357ABD';
+                            window.pJSDom[0].pJS.particles.line_linked.color = isDarkMode ? '#F3F4F6' : '#357ABD';
+                            window.pJSDom[0].pJS.fn.particlesRefresh();
+                        }
+                    }, 100);
+                });
+            }
+        });
+    </script>
+
+    <!-- Script principal da aplicação -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

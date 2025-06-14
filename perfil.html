@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Sistema de Chamados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { light: '#4A90E2', DEFAULT: '#357ABD', dark: '#2A629A' },
+                        secondary: { light: '#F3F4F6', DEFAULT: '#E5E7EB', dark: '#D1D5DB' },
+                        background: { light: '#FFFFFF', dark: '#1F2937' },
+                        text: { light: '#111827', dark: '#F3F4F6' },
+                        card: { light: '#FFFFFF', dark: '#2D3748' },
+                        success: '#10B981', danger: '#EF4444', warning: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300">
+    <div class="flex h-screen">
+        <aside class="w-64 bg-card-light dark:bg-card-dark shadow-md p-5 flex flex-col">
+            <div class="text-2xl font-bold text-primary dark:text-primary-light mb-10">Sistema de Chamados</div>
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-3"><a href="chamados.html"
+                            class="flex items-center p-2 text-base font-normal rounded-lg hover:bg-secondary dark:hover:bg-gray-700 group"><svg
+                                class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-light transition duration-75"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                            </svg><span class="ml-3">Meus Chamados</span></a></li>
+                    <li id="nav-usuarios-link-container" class="mb-3" style="display: none;"><a href="usuario.html"
+                            class="flex items-center p-2 text-base font-normal rounded-lg hover:bg-secondary dark:hover:bg-gray-700 group"><svg
+                                class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-primary dark:group-hover:text-primary-light transition duration-75"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                    clip-rule="evenodd"></path>
+                            </svg><span class="ml-3">Usuários</span></a></li>
+                    <li class="mb-3"><a href="perfil.html"
+                            class="flex items-center p-2 text-base font-normal rounded-lg bg-secondary dark:bg-gray-700 text-primary dark:text-primary-light group"><svg
+                                class="w-6 h-6 text-primary dark:text-primary-light transition duration-75"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0012 11z"
+                                    clip-rule="evenodd"></path>
+                            </svg><span class="ml-3">Meu Perfil</span></a></li>
+                </ul>
+            </nav>
+            <div class="mt-auto">
+                <button id="theme-toggle-sidebar"
+                    class="w-full flex items-center justify-center p-2 rounded-lg bg-secondary-light dark:bg-gray-700 hover:bg-secondary dark:hover:bg-gray-600 transition-colors mb-3">
+                    <svg id="theme-toggle-dark-icon-sidebar" class="hidden w-5 h-5 text-gray-800 dark:text-gray-200"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon-sidebar" class="hidden w-5 h-5 text-gray-800 dark:text-gray-200"
+                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414-1.414l.707.707a1 1 0 11-1.414 1.414l-.707-.707zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="ml-2 text-sm">Alternar Tema</span>
+                </button>
+                <button id="logout-button"
+                    class="w-full flex items-center p-2 text-base font-normal rounded-lg hover:bg-red-500 hover:text-white dark:hover:bg-red-700 group"><svg
+                        class="w-6 h-6 text-gray-500 dark:text-gray-400 group-hover:text-white transition duration-75"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                        </path>
+                    </svg><span class="ml-3">Sair</span></button>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-10 overflow-y-auto">
+            <header class="mb-8">
+                <h1 class="text-3xl font-semibold">Meu Perfil</h1>
+            </header>
+
+            <div id="message-area-profile" class="mb-6"></div>
+
+            <div class="max-w-xl mx-auto bg-card-light dark:bg-card-dark shadow-xl rounded-xl p-8">
+                <form id="profile-form" class="space-y-6">
+                    <div>
+                        <label for="profile-nome" class="block text-sm font-medium">Nome Completo</label>
+                        <input type="text" name="profile-nome" id="profile-nome" required
+                            class="mt-1 block w-full rounded-md border-secondary-dark dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3 bg-secondary-light dark:bg-gray-700">
+                    </div>
+                    <div>
+                        <label for="profile-email" class="block text-sm font-medium">Email</label>
+                        <input type="email" name="profile-email" id="profile-email" required
+                            class="mt-1 block w-full rounded-md border-secondary-dark dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3 bg-secondary-light dark:bg-gray-700">
+                    </div>
+                    <div>
+                        <label for="profile-senha-atual" class="block text-sm font-medium">Senha Atual (para alterar
+                            senha)</label>
+                        <input type="password" name="profile-senha-atual" id="profile-senha-atual"
+                            class="mt-1 block w-full rounded-md border-secondary-dark dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3 bg-secondary-light dark:bg-gray-700"
+                            placeholder="•••••••••">
+                    </div>
+                    <div>
+                        <label for="profile-nova-senha" class="block text-sm font-medium">Nova Senha</label>
+                        <input type="password" name="profile-nova-senha" id="profile-nova-senha"
+                            class="mt-1 block w-full rounded-md border-secondary-dark dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3 bg-secondary-light dark:bg-gray-700"
+                            placeholder="Deixe em branco para não alterar">
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Mínimo 6 caracteres.</p>
+                    </div>
+                    <div>
+                        <label for="profile-confirma-nova-senha" class="block text-sm font-medium">Confirmar Nova
+                            Senha</label>
+                        <input type="password" name="profile-confirma-nova-senha" id="profile-confirma-nova-senha"
+                            class="mt-1 block w-full rounded-md border-secondary-dark dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3 bg-secondary-light dark:bg-gray-700">
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit"
+                            class="w-full text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none focus:ring-primary-light font-medium rounded-lg text-sm px-5 py-3 text-center dark:bg-primary-dark dark:hover:bg-primary dark:focus:ring-primary-dark transition-colors">
+                            Salvar Alterações
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+
+</html>

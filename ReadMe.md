@@ -1,4 +1,4 @@
-# 🚀 Sistema de Chamados Interativo (Frontend)
+# 🚀 Sistema de Chamados Interativo
 
 ![Badge de Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![Versão](https://img.shields.io/badge/version-1.0.0-blue)
@@ -241,6 +241,6 @@ Este projeto é distribuído sob a Licença MIT. Sinta-se livre para usar, modif
 
 ---
 
-Desenvolvido com ❤️ e ☕ por **[Marco Aurélio Development]**
+Desenvolvido com ❤️ e ☕ por **[Marcos Dev]**
 
-[![Meu Perfil no GitHub](https://img.shields.io/badge/GitHub-MarcoAurélioDevelopment-blue?style=for-the-badge&logo=github)](https://github.com/marcoaureliodevelopment)
+[![Meu Perfil no GitHub](https://img.shields.io/badge/GitHub-MarcosDev-blue?style=for-the-badge&logo=github)](https://github.com/OwSmiithDev)
